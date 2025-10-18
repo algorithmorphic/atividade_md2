@@ -124,7 +124,6 @@ void solveQ3() {
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
     solveQ3();
     return 0;
 }

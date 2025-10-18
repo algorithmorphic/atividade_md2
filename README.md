@@ -16,21 +16,18 @@ Todos os códigos foram desenvolvidos em C++17, com foco em clareza, modularidad
 O projeto está organizado em diretórios, um para cada questão, contendo o código-fonte (`.cpp`) e o executável compilado.
 
 ```
-atividade_md2/
+.
+├── docs
+│   └── atividade_MD2_2025_2_k.pdf
 ├── q1/
-│   ├── q1.cpp
-│   └── q1 (executável)
+│   └── q1.cpp
 ├── q2/
-│   ├── q2.cpp
-│   └── q2 (executável)
+│   └── q2.cpp
 ├── q3/
-│   ├── q3.cpp
-│   └── q3 (executável)
+│   └── q3.cpp
 ├── q4/
-│   ├── q4.cpp
-│   └── q4 (executável)
+│   └── q4.cpp
 └── README.md
-└── documento_didatico.md
 ```
 
 ## Como Compilar e Executar

@@ -62,7 +62,6 @@ void solveQ2(){
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
     solveQ2();
     return 0;
 }

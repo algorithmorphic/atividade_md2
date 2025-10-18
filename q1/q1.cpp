@@ -344,7 +344,6 @@ void solveQ1() {
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-//    std::cin.tie(NULL);
     solveQ1();
     return 0;
 }

@@ -1,10 +1,9 @@
 # Atividade de Matemática Discreta II
 
-**Aluno:** Artur Ricardo dos Santos Lopes
-**Matrícula:** 190102977
-
-**Aluno:** Lucca Medeiros Silva
-**Matrícula:** 222031528
+| Aluno                          | Matrícula |
+| ------------------------------ | :-------: |
+| Artur Ricardo dos Santos Lopes | 190102977 |
+| Lucca Medeiros Silva           | 222031528 |
 
 ## Introdução
 

@@ -11,6 +11,25 @@
 #include <algorithm>
 #include <cmath>
 
+// Função para garantir que N1 e N2 sejam primos e distintos
+bool isSquareFreeAndComposite(long long n) {
+    if (n < 4) return false; // 0,1,2,3 não servem
+    long long m = n;
+    for (long long p = 2; p * p <= m; ++p) {
+        int cnt = 0;
+        while (m % p == 0) { m /= p; ++cnt; if (cnt > 1) return false; }
+    }
+    // sobrou fator >1 conta como 1 primo com expoente 1
+    // precisa ser composto (>= 2 fatores primos no total)
+    int factors = 0;
+    m = n;
+    for (long long p = 2; p * p <= m; ++p) {
+        if (n % p == 0) { ++factors; while (n % p == 0) n /= p; }
+    }
+    if (n > 1) ++factors;
+    return factors >= 2; // composto e sem expoente repetido
+}
+
 // Função para calcular o MDC usando o Algoritmo de Euclides
 long long gcd(long long a, long long b, bool print_steps = false) {
     if (print_steps) {
@@ -204,7 +223,11 @@ void solveQ1() {
         if (N1 < 100 || N1 > 9999) {
             std::cout << "  Erro: N1 deve ter entre 3 e 4 dígitos.\n";
         }
-    } while (N1 < 100 || N1 > 9999);
+
+        if (!isSquareFreeAndComposite(N1)) {
+            std::cout << "  Erro: cada N1 deve ser composto e produto de primos distintos (sem repetição).\n";
+        }
+    } while (N1 < 100 || N1 > 9999 || !isSquareFreeAndComposite(N1));
 
     do {
         std::cout << "  Digite o segundo número composto N2 (3 ou 4 dígitos, diferente de N1): ";
@@ -214,7 +237,11 @@ void solveQ1() {
         } else if (N2 == N1) {
             std::cout << "  Erro: N2 deve ser diferente de N1.\n";
         }
-    } while (N2 < 100 || N2 > 9999 || N2 == N1);
+
+        if (!isSquareFreeAndComposite(N2)) {
+            std::cout << "  Erro: cada N2 deve ser composto e produto de primos distintos (sem repetição).\n";
+        }
+    } while (N2 < 100 || N2 > 9999 || N2 == N1 || !isSquareFreeAndComposite(N2));
 
     std::cout << "  Fatorando N1 = " << N1 << " usando Pollard's Rho...\n";
     long long p = pollardRho(N1, true);
@@ -317,7 +344,7 @@ void solveQ1() {
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+//    std::cin.tie(NULL);
     solveQ1();
     return 0;
 }
